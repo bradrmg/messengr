@@ -1,0 +1,44 @@
+{{ DIALOG_DISPLAY }}
+<h2>{{ Inbox }}</h2>
+{{ SUBPAGE_LABEL }}
+<p>{{ SEARCH_FORM }}</p>
+<form id="fm_inbox" name="fm_inbox" action="index.php?app=main&inc=feature_report&route=user_inbox&op=actions&in_sender={{ in_sender }}" method=post>
+{{ CSRF_FORM }}
+<input type=hidden name=go value="delete">
+<div class=actions_box>
+	<div class=pull-left>
+		<a href="index.php?app=main&inc=feature_report&route=user_inbox&op=actions&go=export&in_sender={{ in_sender }}">{{ Export }}</a>
+	</div>
+</div>
+<div class=table-responsive>
+<table class=playsms-table-list>
+	<thead>
+		<tr>
+			<th width=20%>{{ From }}</th>
+			<th width=75%>{{ Message }}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<loop.data>
+		<tr class={{ data.tr_class }}>
+			<td>
+				<div><strong>{{ data.type }}</strong></div>
+				<div>{{ data.current_sender }}</div>
+				<div id="msg_label">{{ data.in_datetime }}</div>
+				<div>{{ data.view_all_link }}</div>
+			</td>
+			<td>
+				<div id={{ data.msg_div }}>{{ data.in_msg }}</div>
+				<div id={{ data.msg_option }}>{{ data.reply }}&nbsp{{ data.forward }}</div>
+			</td>
+			<td>
+				<input type=hidden name=itemid{{ data.j }} value={{ data.in_id }}>
+			</td>
+		</tr>
+		</loop.data>
+	</tbody>
+</table>
+</div>
+<div class=pull-right>{{ NAV_FORM }}</div>
+</form>
+<p>{{ HOME_LINK }}</p>

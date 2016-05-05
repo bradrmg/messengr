@@ -1,0 +1,23 @@
+{{ DIALOG_DISPLAY }}
+<h2>{{ Inbox }}</h2>
+{{ SUBPAGE_LABEL }}
+{{ CSRF_FORM }}
+<div class="convotainer">
+	<loop.data>
+		<div class={{ data.tr_class }}>
+			{{ data.in_msg }}
+		</div>
+	</loop.data>
+</div>
+<br>
+<p>
+	<textarea name="message" id=message style="width: 100%"
+		onFocus="SmsSetCounter();" onClick="SmsSetCounter();"
+		onkeypress="SmsSetCounter();" onblur="SmsSetCounter();"
+		onKeyUp="SmsSetCounter();">{{ message }}</textarea>
+</p>
+<p>
+	<div class="form-group">
+				<input type=submit class=button value='{{ Send }}'>
+		</div>
+</p>

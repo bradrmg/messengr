@@ -40,7 +40,6 @@ switch (_OP_) {
 		$base_url = 'index.php?app=main&inc=feature_superinbox&op=super_inbox';
 		$convo_url = 'index.php?app=main&inc=feature_superinbox&op=convo';
 		
-		
 		if ($in_sender = trim($_REQUEST['in_sender'])) {
 			$subpage_label = "<h4>" . sprintf(_('List of messages from %s'), $in_sender) . "</h4>";
 			$home_link = _back($base_url);
